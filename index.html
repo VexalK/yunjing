@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>忆游阁 - 发现优质君成录游戏</title>
+  <link rel="icon" href="logo.ico" type="image/x-icon">
+  <!-- 引入外部资源 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- 配置Tailwind自定义颜色和字体 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0066FF',
+            secondary: '#FF9500',
+            dark: '#1C1C1E',
+            light: '#F5F5F7'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <!-- 自定义工具类 -->
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .glass {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .glass-dark {
+        background: rgba(17, 17, 17, 0.35);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+    }
+  </style>
+  
+  <style>
+    /* 基础样式 */
+    body {
+      background-image: 
+        radial-gradient(circle at 25% 25%, rgba(0, 102, 255, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 75% 75%, rgba(255, 149, 0, 0.1) 0%, transparent 40%);
+      background-attachment: fixed;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    /* 隐藏所有滚动条 */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-gray-800 overflow-hidden">
+  <!-- 导航栏 -->
+  <header class="glass fixed w-full z-50" id="navbar">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+          <div class="w-10 h-10 rounded-lg overflow-hidden">
+            <img src="logo.webp" alt="忆游阁" class="w-full h-full object-cover">
+          </div>
+          <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-500">忆游阁</span>
+        </div>
+        
+        <!-- 导航链接 - 桌面端 -->
+        <nav class="hidden md:flex items-center space-x-8">
+          <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium">首页</a>
+          <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium">下载</a>
+          <a href="#" class="text-gray-700 hover:text-primary transition-colors font-medium">公众号</a>
+        </nav>
+        
+        <!-- 移动端菜单按钮 -->
+        <button class="md:hidden text-gray-700 hover:text-primary text-xl" id="menuBtn">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- 移动端导航菜单 -->
+    <div class="md:hidden hidden glass-dark px-4 py-4 absolute w-full" id="mobileMenu">
+      <div class="flex flex-col space-y-4">
+        <a href="#" class="text-white hover:text-primary transition-colors py-2 border-b border-gray-700/30">首页</a>
+        <a href="#" class="text-white hover:text-primary transition-colors py-2 border-b border-gray-700/30">下载</a>
+        <a href="#" class="text-white hover:text-primary transition-colors py-2">公众号</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 英雄区域 -->
+  <section class="pt-16 pb-4 md:pt-28 md:pb-10 px-4">
+    <div class="container mx-auto">
+      <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
+        <!-- 左侧文本 -->
+        <div class="lg:w-1/2">
+          <div class="inline-block px-4 py-1 rounded-full glass text-primary font-medium text-sm mb-6">
+            电脑版
+          </div>
+          <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-gray-800 mb-6 text-shadow">
+            君成录专属<br>游戏商店
+          </h1>
+          <p class="text-gray-600 text-lg md:text-xl mb-8 max-w-xl">
+            一个专属君成录的游戏商店平台
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="src/sra/忆游阁 Setup 25.0.0.exe" class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full transition-all shadow-lg shadow-primary/20 font-medium text-lg hover-lift inline-block text-center" download>
+              <i class="fa fa-download mr-2"></i>立即下载
+            </a>
+          </div>
+        </div>
+        
+        <!-- 右侧图片 -->
+        <div class="lg:w-1/2 relative">
+          <div class="relative z-10 rounded-xl overflow-hidden shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500">
+            <img src="src\img\game.webp" alt="君成录游戏展示图" class="w-full h-auto">
+            
+            <!-- 悬浮的手机屏幕 -->
+            <div class="absolute -bottom-6 -left-6 bg-white rounded-xl overflow-hidden shadow-xl w-40 h-72 border-4 border-gray-100 transform -rotate-6 hover:rotate-0 transition-transform duration-500">
+              <img src="img\game1.PNG" alt="手机上的君成录游戏" class="w-full h-full object-cover">
+            </div>
+          </div>
+          
+          <!-- 装饰元素 -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-3xl -z-10"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript -->
+  <script>
+    // 移动端菜单切换
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function() {
+          mobileMenu.classList.toggle('hidden');
+          
+          // 切换图标
+          const icon = menuBtn.querySelector('i');
+          if (icon) {
+            if (icon.classList.contains('fa-bars')) {
+              icon.classList.remove('fa-bars');
+              icon.classList.add('fa-times');
+            } else {
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            }
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
